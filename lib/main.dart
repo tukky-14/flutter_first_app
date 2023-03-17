@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'next_page.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -41,32 +43,21 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('First App'),
-        actions: const [
-          Icon(Icons.add),
-          Icon(Icons.share),
-        ],
       ),
       body: Center(
-        child: Container(
-          color: Colors.red,
-          height: 200,
-          child: Padding(
-            padding: const EdgeInsets.all(60.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const Text(
-                  'You have pushed the button this!!',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-                Text(
-                  '$_counter',
-                  style: Theme.of(context).textTheme.headlineMedium,
-                ),
-              ],
-            ),
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              ElevatedButton(
+                  child: const Text('次へ'),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => NextPage()),
+                    );
+                  }),
+            ],
           ),
         ),
       ),
