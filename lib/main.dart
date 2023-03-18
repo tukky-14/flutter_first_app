@@ -50,13 +50,15 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             children: [
               ElevatedButton(
-                  child: const Text('次へ'),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => NextPage()),
-                    );
-                  }),
+                child: const Text('次へ'),
+                onPressed: () async {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => NextPage('戻る')),
+                  );
+                  print(result);
+                },
+              ),
             ],
           ),
         ),
