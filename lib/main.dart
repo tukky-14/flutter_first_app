@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'next_page.dart';
+import 'form_page.dart';
+import 'text_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,15 +50,24 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              Image.network('https://http.cat/408'),
+              Image.network('https://http.cat/200'),
               ElevatedButton(
                 child: const Text('次へ'),
                 onPressed: () async {
                   final result = await Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => NextPage('戻る')),
+                    MaterialPageRoute(builder: (context) => TextPage('戻る')),
                   );
                   print(result);
+                },
+              ),
+              ElevatedButton(
+                child: const Text('フォーム'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => FormPage()),
+                  );
                 },
               ),
             ],

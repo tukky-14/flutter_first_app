@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class NextPage extends StatelessWidget {
-  NextPage(this.name, {super.key});
+class TextPage extends StatelessWidget {
+  TextPage(this.name, {super.key});
   String name;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Next Page'),
+        title: const Text('Text Page'),
       ),
       body: Container(
         color: Colors.black,
@@ -16,6 +16,11 @@ class NextPage extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(children: [
+              ElevatedButton(
+                  child: Text(name),
+                  onPressed: () {
+                    Navigator.pop(context, 'おかえりなさい。');
+                  }),
               const Text(
                 'Hello World!',
                 style: TextStyle(
@@ -23,11 +28,6 @@ class NextPage extends StatelessWidget {
                     color: Colors.white,
                     fontWeight: FontWeight.bold),
               ),
-              ElevatedButton(
-                  child: Text(name),
-                  onPressed: () {
-                    Navigator.pop(context, 'おかえりなさい。');
-                  }),
               const Text(
                 'Goodbye World!',
                 style: TextStyle(
