@@ -16,11 +16,27 @@ class NextPage extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(children: [
+              const Text(
+                'Hello World!',
+                style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+              ),
               ElevatedButton(
                   child: Text(name),
                   onPressed: () {
                     Navigator.pop(context, 'おかえりなさい。');
                   }),
+              const Text(
+                'Goodbye World!',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                  fontStyle: FontStyle.italic,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
             ]),
           ),
         ),
