@@ -49,6 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
+              Image.network('https://http.cat/305'),
               ElevatedButton(
                 child: const Text('次へ'),
                 onPressed: () async {
@@ -62,11 +63,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
