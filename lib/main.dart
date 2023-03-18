@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'form_page.dart';
+import 'list_page.dart';
 import 'text_page.dart';
 
 void main() {
@@ -31,14 +32,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,8 +44,8 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             children: [
               Image.network('https://http.cat/200'),
+              const SizedBox(height: 20.0),
               ElevatedButton(
-                child: const Text('次へ'),
                 onPressed: () async {
                   final result = await Navigator.push(
                     context,
@@ -60,15 +53,37 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                   print(result);
                 },
+                style: ButtonStyle(
+                  minimumSize: MaterialStateProperty.all(
+                      const Size(100, 40)), // 横幅を100に指定
+                ),
+                child: const Text('次へ'),
               ),
+              const SizedBox(height: 20.0),
               ElevatedButton(
-                child: const Text('フォーム'),
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => FormPage()),
                   );
                 },
+                style: ButtonStyle(
+                    minimumSize: MaterialStateProperty.all(const Size(100, 40)),
+                    backgroundColor: MaterialStateProperty.all(Colors.orange)),
+                child: const Text('フォーム'),
+              ),
+              const SizedBox(height: 20.0),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ListPage()),
+                  );
+                },
+                style: ButtonStyle(
+                    minimumSize: MaterialStateProperty.all(const Size(100, 40)),
+                    backgroundColor: MaterialStateProperty.all(Colors.green)),
+                child: const Text('リスト'),
               ),
             ],
           ),

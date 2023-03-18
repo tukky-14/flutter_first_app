@@ -27,6 +27,7 @@ class FormPage extends StatelessWidget {
                   hintText: '趣味',
                 ),
               ),
+              const SizedBox(height: 20.0),
               ElevatedButton(
                 child: const Text('新規登録'),
                 onPressed: () {
